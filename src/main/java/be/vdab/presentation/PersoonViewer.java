@@ -5,9 +5,18 @@ import java.util.List;
 import be.vdab.entities.Persoon;
 
 public class PersoonViewer {
+	private boolean aantalKinderenTonen;
+	public void setAantalKinderenTonen(boolean aantalKinderenTonen) {
+		this.aantalKinderenTonen = aantalKinderenTonen;
+	}
 	public void afbeelden(List<Persoon> personen) {
-		personen.forEach(persoon -> System.out.println(
-				persoon.getPersoonNr() + ". " + persoon.getVoornaam() + " " + persoon.getFamilienaam() + 
-				": " + persoon.getAantalKinderen()));
+		for (Persoon persoon : personen) {
+			System.out.printf("%d %s %s ", persoon.getPersoonNr(),
+			persoon.getVoornaam(), persoon.getFamilienaam());
+			if (aantalKinderenTonen) {
+				System.out.print(persoon.getAantalKinderen());
+			}
+			System.out.println();
+		}
 	}
 }
