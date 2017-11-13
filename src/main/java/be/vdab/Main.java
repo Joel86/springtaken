@@ -1,10 +1,10 @@
 package be.vdab;
 
-import java.util.Arrays;
+import java.io.IOException;
 
+import org.springframework.beans.BeansException;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import be.vdab.entities.Persoon;
 import be.vdab.presentation.PersoonViewer;
 
 public class Main {
@@ -12,10 +12,11 @@ public class Main {
 	public static void main(String[] args) {
 		try(ClassPathXmlApplicationContext context = 
 				new ClassPathXmlApplicationContext("container.xml")) {
-			context.getBean(PersoonViewer.class).afbeelden(Arrays.asList(
-				new Persoon(1, "Joel", "Vanherle", 0),
-				new Persoon(2, "Koen", "Persoons", 1),
-				new Persoon(3, "Bart", "De Pauw", 2)));
+			context.getBean(PersoonViewer.class).afbeelden();
+		} catch (BeansException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
 		}
 	}
 }
