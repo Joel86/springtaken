@@ -6,6 +6,9 @@ import be.vdab.entities.Persoon;
 
 public class PersoonViewer {
 	private boolean aantalKinderenTonen;
+	PersoonViewer(boolean aantalKinderenTonen) {
+		this.aantalKinderenTonen = aantalKinderenTonen;
+	}
 	public void setAantalKinderenTonen(boolean aantalKinderenTonen) {
 		this.aantalKinderenTonen = aantalKinderenTonen;
 	}
