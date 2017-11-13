@@ -5,5 +5,14 @@
   http://www.springframework.org/schema/beans/spring-beans.xsd'>
     <import resource='repositories.xml'/>
     <import resource='services.xml'/>
-    <import resource='presentation.xml'/>
+    <bean id='persoonViewer' class='be.vdab.presentation.PersoonViewer'>
+      <constructor-arg>
+        <list>
+          <value>VOORNAAM</value>
+          <value>FAMILIENAAM</value>
+          <value>AANTAL_KINDEREN</value>
+        </list>
+      </constructor-arg>
+      <constructor-arg ref='persoonService'/>
+    </bean>
 </beans>
