@@ -6,11 +6,17 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Repository;
+
 import be.vdab.entities.Persoon;
 
+@Repository
+@Qualifier("CSV")
 public class PersoonRepositoryCSV implements PersoonRepository {
 	private final File bestand;
-	public PersoonRepositoryCSV(File bestand) {
+	public PersoonRepositoryCSV(@Value("${persoonCSV}")File bestand) {
 		this.bestand = bestand;
 	}
 	@Override
